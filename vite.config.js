@@ -2,6 +2,7 @@ import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import path from "path";
 import { fileURLToPath } from "url";
+import eslint from "vite-plugin-eslint";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -15,6 +16,7 @@ export default defineConfig({
       jsxRuntime: "automatic",
       fastRefresh: true, // Enable Fast Refresh for React components，just use for development, it will be removed in production build
     }),
+    eslint({ failOnError: false, failOnWarning: false }), // Enable ESLint plugin for Vite, but do not fail on error or warning
   ],
   server: {
     port: 3000,

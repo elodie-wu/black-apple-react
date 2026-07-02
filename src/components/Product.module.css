@@ -1,0 +1,18 @@
+.productTextContainer {
+  position: absolute;
+  top: 1.5em;
+  padding-left: 1.5em;
+  padding-top: 1.5em;
+  color: white;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+}
+
+.productTitle {
+  font-size: 2rem;
+  font-weight: 700;
+}
+.product-detail {
+  font-size: 1rem;
+  font-weight: 400;
+  margin-top: 1.25em;
+}
