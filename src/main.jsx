@@ -2,14 +2,18 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import Production from "@components/Product";
 import "./main.css"; // 引入全局样式文件 import global stylesheet
-import { NEW_ARRIVALS_LIST_2 } from "./assets/data"; // 引入数据文件 注意是小写 warning: import data file, note that it is lowercase
 import ProductList from "./components/ProductList";
+import NewArrival from "@components/NewArrival";
+import Offer from "@components/Offer";
+
+import MainLayout from "./layouts/MainLayout";
+import Footer from "@components/Footer";
+import Header from "@components/Header";
+import Home from "./pages/Home";
 
 function App() {
   return (
-    <div>
-      <ProductList data={NEW_ARRIVALS_LIST_2} />
-    </div>
+    <MainLayout header={<Header />} content={<Home />} footer={<Footer />} />
   );
 }
 

@@ -13,7 +13,7 @@ const ProductNotFound = () => (
     <h2>Please wait</h2>
   </div>
 );
-const ListTitle = () => (
+const ListTitle = ({ title }) => (
   <div style={{ display: "flex", justifyContent: "center" }}>
     <h1
       style={{
@@ -22,21 +22,18 @@ const ListTitle = () => (
         backgroundImage: "url('src/assets/lines.png')",
       }}
     >
-      New arrivals. New possibilities.
+      {title || "new arrival"}
     </h1>
   </div>
 );
-function ProductList({ data }) {
-  const handleProductClick = (title) => {
-    alert(`Product clicked: ${title}`); // 点击产品时弹出提示框 alert box pops up when product is clicked
-  };
 
+function ProductList({ title, datalength, children }) {
   const isReleased = new Date() <= new Date("2199-01-01");
 
   if (!isReleased) {
     return <ReleaseNote />;
   }
-  if (data.length <= 0) {
+  if (datalength <= 0) {
     return <ProductNotFound />;
   }
   return (
@@ -47,10 +44,8 @@ function ProductList({ data }) {
         rowGap: "3rem",
       }}
     >
-      <ListTitle />
-      {data.map((p) => (
-        <Production {...p} key={p.title} onProductClick={handleProductClick} />
-      ))}
+      <ListTitle title={title} />
+      {children}
     </div>
   );
 }
