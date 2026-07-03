@@ -2,17 +2,13 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import Production from "@components/Product";
 import "./main.css"; // 引入全局样式文件 import global stylesheet
-import { product } from "./assets/data.js"; // 引入数据文件 注意是小写 warning: import data file, note that it is lowercase
+import { NEW_ARRIVALS_LIST } from "./assets/data"; // 引入数据文件 注意是小写 warning: import data file, note that it is lowercase
+import ProductList from "./components/ProductList";
 
 function App() {
-  const handleProductClick = (title) => {
-    alert(`Product clicked: ${title}`); // 点击产品时弹出提示框 alert box pops up when product is clicked
-  };
-  //单根节点原则 sigle root node principle: In React, a component must return a single root node. This means that all the elements returned by a component must be wrapped in a single parent element. This is important for maintaining a consistent and predictable structure in the virtual DOM, which helps React efficiently update the UI when the state changes. If you try to return multiple sibling elements without a single parent, React will throw an error. To adhere to this principle, you can use a <div>, <section>, or React.Fragment to wrap multiple elements.
   return (
     <div>
-      <h1>Hello,React!</h1>
-      <Production {...product} onProductClick={handleProductClick} />
+      <ProductList data={NEW_ARRIVALS_LIST} />
     </div>
   );
 }

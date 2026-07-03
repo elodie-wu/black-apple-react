@@ -6,27 +6,29 @@ import eslint from "vite-plugin-eslint";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-const createPath = (dirName) => path.resolve(__dirname, `src/${dirName}`);
-// components => /你的项目路径/src/components
+console.log(__dirname);
+
+const createAlias = (dirName) => path.resolve(__dirname, `src/${dirName}`);
+// components => /你的项目根目录/src/components
 
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [
     react({
       jsxRuntime: "automatic",
-      fastRefresh: true, // Enable Fast Refresh for React components，just use for development, it will be removed in production build
+      fastRefresh: true,
     }),
-    eslint({ failOnError: false, failOnWarning: false }), // Enable ESLint plugin for Vite, but do not fail on error or warning
+    eslint(),
   ],
   server: {
     port: 3000,
   },
   resolve: {
     alias: {
-      "@": createPath(""), // src/, 项目根目录
-      "@components": createPath("components"), // src/components, 组件目录
-      "~img": createPath("assets/images"), // src/assets/images, 图片目录
-      "#types": createPath("/types"), // src/types, 类型目录
+      "@": createAlias(""), // src/，项目根目录
+      "@components": createAlias("components"), // src/components/，组件专用通道
+      "~img": createAlias("assets/images"), // src/assets/images/， 图片资源通道
+      "#types": createAlias("/types"), // src/types/，TS类型定义目录
     },
   },
 });
