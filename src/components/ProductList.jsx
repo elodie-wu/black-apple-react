@@ -5,7 +5,9 @@ function ProductList({ data }) {
   const handleProductClick = (title) => {
     alert(`Product clicked: ${title}`); // 点击产品时弹出提示框 alert box pops up when product is clicked
   };
-  return (
+  const isReleased = new Date() >= new Date("2199-09-01");
+
+  return data.length >0 && (
     <div
       style={{
         display: "grid",
@@ -27,7 +29,7 @@ function ProductList({ data }) {
       {data.map((p) => (
         <Production {...p} key={p.title} onProductClick={handleProductClick} />
       ))}
-    </div>
+    </div>,
   );
 }
 

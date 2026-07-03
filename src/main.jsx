@@ -2,13 +2,13 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import Production from "@components/Product";
 import "./main.css"; // 引入全局样式文件 import global stylesheet
-import { NEW_ARRIVALS_LIST } from "./assets/data"; // 引入数据文件 注意是小写 warning: import data file, note that it is lowercase
+import { NEW_ARRIVALS_LIST_2 } from "./assets/data"; // 引入数据文件 注意是小写 warning: import data file, note that it is lowercase
 import ProductList from "./components/ProductList";
 
 function App() {
   return (
     <div>
-      <ProductList data={NEW_ARRIVALS_LIST} />
+      <ProductList data={NEW_ARRIVALS_LIST_2} />
     </div>
   );
 }
