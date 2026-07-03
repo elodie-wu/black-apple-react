@@ -5,7 +5,16 @@ function ProductList({ data }) {
   const handleProductClick = (title) => {
     alert(`Product clicked: ${title}`); // 点击产品时弹出提示框 alert box pops up when product is clicked
   };
-  return data.length > 0 ? (
+
+  const isReleased = new Date() <= new Date("2199-09-01");
+
+  if (!isReleased) {
+    return <div>Product not released yet. Please check back later.</div>;
+  }
+  if (data.length <= 0) {
+    return <div>No products available.</div>;
+  }
+  return (
     <div
       style={{
         display: "grid",
@@ -28,8 +37,6 @@ function ProductList({ data }) {
         <Production {...p} key={p.title} onProductClick={handleProductClick} />
       ))}
     </div>
-  ) : (
-    <div>No products available.</div>
   );
 }
 
