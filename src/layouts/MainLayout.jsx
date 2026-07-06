@@ -1,6 +1,6 @@
 const MainLayout = ({ header, content, footer }) => {
   return (
-    <div>
+    <div className="bg-apple-light dark:bg-apple-dark">
       {header ?? <h1>default header</h1>}
       {content ?? <p>default content</p>}
       {footer ?? <p>default footer</p>}

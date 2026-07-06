@@ -8,11 +8,19 @@ const Header = () => {
   const [isSearchEnable, setIsSearchEnable] = useState(false);
 
   return (
-    <nav className="flex items-center justify-between px-4 h-16 shadow-md sticky top-0 z-50 bg-white/70 dark:bg-black/90 backdrop-blur-md">
+    <nav
+      className="flex items-center justify-between px-4 h-16   sticky top-0 z-50 
+    bg-apple-light dark:bg-apple-dark
+    shadow-apple-md
+    backdrop-blur-md"
+    >
       <a href="#" className="text-xl font-bold">
         <Logo className="w-6 h-6 hover:scale-105 transition-transform dark:fill-white" />
       </a>
-      <div className="gap-6 hidden md:flex mx-auto">
+      <div
+        className="gap-6 hidden md:flex mx-auto 
+      text-apple-text-light dark:text-apple-text-dark"
+      >
         <a href="#">Shop</a>
         <a href="#">Mac</a>
         <a href="#">iPad</a>

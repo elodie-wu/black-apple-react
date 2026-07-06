@@ -21,6 +21,7 @@ const ListTitle = ({ title }) => (
         backgroundPosition: "center",
         backgroundImage: "url('src/assets/lines.png')",
       }}
+      className="dark:text-white"
     >
       {title || "new arrival"}
     </h1>
@@ -42,6 +43,7 @@ function ProductList({ title, datalength, children }) {
         display: "grid",
         justifyContent: "center",
         rowGap: "3rem",
+        marginTop: "4rem",
       }}
     >
       <ListTitle title={title} />
