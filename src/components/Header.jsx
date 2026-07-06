@@ -1,15 +1,16 @@
 import Logo from "../assets/apple.svg?react";
 import { AiOutlineMenu, AiOutlineSearch } from "react-icons/ai";
 import { useState } from "react";
+import DarkToggle from "@components/DarkToggle";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isSearchEnable, setIsSearchEnable] = useState(false);
 
   return (
-    <nav className="flex items-center justify-between px-4 h-16 shadow-md sticky top-0 z-50 bg-white/70 backdrop-blur-md">
+    <nav className="flex items-center justify-between px-4 h-16 shadow-md sticky top-0 z-50 bg-white/70 dark:bg-black/90 backdrop-blur-md">
       <a href="#" className="text-xl font-bold">
-        <Logo className="w-6 h-6 hover:scale-105 transition-transform" />
+        <Logo className="w-6 h-6 hover:scale-105 transition-transform dark:fill-white" />
       </a>
       <div className="gap-6 hidden md:flex mx-auto">
         <a href="#">Shop</a>
@@ -28,16 +29,18 @@ const Header = () => {
             peer-focus:text-xs
             peer-focus:text-blue-500
             transition
+            dark:text-white
           "
           >
             Search
           </label>
         </div>
       )}
-      <div className="gap-2">
+      <div className="gap-2 dark:text-white space-x-2">
         <button onClick={() => setIsSearchEnable(!isSearchEnable)}>
           <AiOutlineSearch size={24} />
         </button>
+        <DarkToggle />
         <button className="md:hidden" onClick={() => setIsOpen(true)}>
           <AiOutlineMenu size={24} />
         </button>
@@ -47,7 +50,7 @@ const Header = () => {
         ${!isOpen && "hidden"}
         `}
       >
-        <div className="flex flex-col mt-17 space-y-6 bg-white text-center p-6 rounded-lg">
+        <div className="flex flex-col mt-17 space-y-6 bg-white dark:bg-black/70 text-center p-6 rounded-lg dark:text-white">
           <a href="#">Shop</a>
           <a href="#">Mac</a>
           <a href="#">iPad</a>
