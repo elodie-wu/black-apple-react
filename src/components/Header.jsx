@@ -1,9 +1,10 @@
 import Logo from "../assets/apple.svg?react";
-import { AiOutlineMenu } from "react-icons/ai";
+import { AiOutlineMenu, AiOutlineSearch } from "react-icons/ai";
 import { useState } from "react";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isSearchEnable, setIsSearchEnable] = useState(false);
 
   return (
     <nav className="flex items-center justify-between px-4 h-16 shadow-md sticky top-0 z-50 bg-white/70 backdrop-blur-md">
@@ -11,28 +12,48 @@ const Header = () => {
         <Logo className="w-6 h-6 hover:scale-105 transition-transform" />
       </a>
       <div className="gap-6 hidden md:flex mx-auto">
-        <a href="#">Products</a>
+        <a href="#">Shop</a>
         <a href="#">Mac</a>
         <a href="#">iPad</a>
         <a href="#">iPhone</a>
         <a href="#">Watch</a>
-        <a href="#">AirPods</a>
+        <a href="#">Help</a>
       </div>
-      <button className="md:hidden" onClick={() => setIsOpen(true)}>
-        <AiOutlineMenu size={24} />
-      </button>
+      {isSearchEnable && (
+        <div className="relative">
+          <input className="peer border border-gray-300 px-4 py-2 w-64 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition" />
+          <label
+            className="absolute left-2 top-2
+            peer-focus:-top-2
+            peer-focus:text-xs
+            peer-focus:text-blue-500
+            transition
+          "
+          >
+            Search
+          </label>
+        </div>
+      )}
+      <div className="gap-2">
+        <button onClick={() => setIsSearchEnable(!isSearchEnable)}>
+          <AiOutlineSearch size={24} />
+        </button>
+        <button className="md:hidden" onClick={() => setIsOpen(true)}>
+          <AiOutlineMenu size={24} />
+        </button>
+      </div>
       <div
         className={`md:hidden fixed top-0 right-0 h-full w-64
         ${!isOpen && "hidden"}
         `}
       >
         <div className="flex flex-col mt-17 space-y-6 bg-white text-center p-6 rounded-lg">
-          <a href="#">Products</a>
+          <a href="#">Shop</a>
           <a href="#">Mac</a>
           <a href="#">iPad</a>
           <a href="#">iPhone</a>
           <a href="#">Watch</a>
-          <a href="#">AirPods</a>
+          <a href="#">Help</a>
         </div>
       </div>
       {isOpen && (
