@@ -2,17 +2,17 @@
 export const SHOPPING_PAGES = [
   {
     id: "store",
-    title: "商店",
+    title: "store",
     path: "/",
   },
   {
     id: "mac",
-    title: "电脑",
+    title: "mac",
     path: "categories/computer",
   },
   {
     id: "phone",
-    title: "手机",
+    title: "phone",
     path: "categories/phone",
   },
   {
@@ -22,12 +22,12 @@ export const SHOPPING_PAGES = [
   },
   {
     id: "entertainment",
-    title: "娱乐",
+    title: "entertainment",
     path: "/entertainment",
   },
   {
     id: "support",
-    title: "技术支持",
+    title: "support",
     path: "/support",
   },
 ];
@@ -35,12 +35,12 @@ export const SHOPPING_PAGES = [
 export const AUTH_PAGES = [
   {
     id: "register",
-    title: "注册",
+    title: "register",
     path: "/auth/register",
   },
   {
     id: "login",
-    title: "登陆",
+    title: "login",
     path: "/auth/signin",
   },
 ];
@@ -48,19 +48,19 @@ export const AUTH_PAGES = [
 export const ACCOUNT_PAGES = [
   {
     id: "account",
-    title: "管理你的账户",
+    title: "account",
     path: "/account",
   },
   {
     id: "orders",
-    title: "订单历史",
-    path: "/computers",
+    title: "orders",
+    path: "/orders",
   },
 ];
 
 export const ABOUT_PAGES = [
   {
-    title: "查找零售店",
+    title: "Find a Store",
     path: "#",
   },
   {
@@ -68,19 +68,19 @@ export const ABOUT_PAGES = [
     path: "#",
   },
   {
-    title: "工作机会",
+    title: "Work with Us",
     path: "#",
   },
   {
-    title: "创造就业",
+    title: "Investors",
     path: "#",
   },
   {
-    title: "管理层",
+    title: "Management",
     path: "#",
   },
   {
-    title: "关于我们",
+    title: "About Apple",
     path: "#",
   },
   {
@@ -91,15 +91,15 @@ export const ABOUT_PAGES = [
 
 export const LEGAL_PAGES = [
   {
-    title: "隐私政策",
+    title: "Privacy Policy",
     path: "/",
   },
   {
-    title: "服务条款",
+    title: "Service Terms",
     path: "/",
   },
   {
-    title: "法律信息",
+    title: "Legal Notices",
     path: "/",
   },
 ];
