@@ -2,13 +2,21 @@ import SkuSelect from "./SkuSelect";
 import { useState } from "react";
 
 function ProductHero({ product, imageUrl }) {
-  const [selectedModel, setSelectedModel] = useState("");
-  const [selectedColor, setSelectedColor] = useState("");
-  const [selectedMemorySize, setSelectedMemorySize] = useState("");
+  // const [selectedModel, setSelectedModel] = useState("");
+  // const [selectedColor, setSelectedColor] = useState("");
+  // const [selectedMemorySize, setSelectedMemorySize] = useState("");
 
-  console.log("Selected Model:", selectedModel);
-  console.log("Selected Color:", selectedColor);
-  console.log("Selected Memory Size:", selectedMemorySize);
+  // console.log("Selected Model:", selectedModel);
+  // console.log("Selected Color:", selectedColor);
+  // console.log("Selected Memory Size:", selectedMemorySize);
+
+  const [cartItem, setCartItem] = useState({
+    productId: product.id,
+    imageUrl: product.image,
+    model: null,
+    color: null,
+    memorySize: null,
+  });
   return (
     <div
       className="flex flex-col lg:flex-row-reverse
@@ -32,20 +40,22 @@ function ProductHero({ product, imageUrl }) {
           <SkuSelect
             placeholder={"Model"}
             options={product.models.map((model) => model.name)}
-            onChange={setSelectedModel}
-            value={selectedModel}
+            onChange={(value) => setCartItem({ ...cartItem, model: value })}
+            value={cartItem.model}
           />
           <SkuSelect
             placeholder={"Color"}
             options={product.colors}
-            onChange={setSelectedColor}
-            value={selectedColor}
+            onChange={(value) => setCartItem({ ...cartItem, color: value })}
+            value={cartItem.color}
           />
           <SkuSelect
             placeholder={"Storage Capacity"}
             options={product.memorySizes.map((size) => size.name)}
-            onChange={setSelectedMemorySize}
-            value={selectedMemorySize}
+            onChange={(value) =>
+              setCartItem({ ...cartItem, memorySize: value })
+            }
+            value={cartItem.memorySize}
           />
           <button
             className="
@@ -58,9 +68,9 @@ function ProductHero({ product, imageUrl }) {
             onClick={() => {
               alert(
                 "Add to Cart:" +
-                  selectedModel +
-                  selectedColor +
-                  selectedMemorySize,
+                  cartItem.model +
+                  cartItem.color +
+                  cartItem.memorySize,
               );
             }}
           >
