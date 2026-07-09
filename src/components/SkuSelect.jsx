@@ -1,9 +1,14 @@
 import { IoIosArrowDropdown } from "react-icons/io";
+import { useState } from "react";
 
 function SkuSelect({ placeholder, options }) {
+  const [value, setValue] = useState("");
+  console.log("Selected value:", value); // Log the selected value whenever it changes
   return (
     <div className="w-24 relative">
       <select
+        value={value}
+        onChange={(e) => setValue(e.target.value)}
         className="
         border border-apple-gray-200
         rounded-md
