@@ -1,15 +1,8 @@
 import SkuSelect from "./SkuSelect";
 import { useState } from "react";
+import { produce } from "immer";
 
 function ProductHero({ product, imageUrl }) {
-  // const [selectedModel, setSelectedModel] = useState("");
-  // const [selectedColor, setSelectedColor] = useState("");
-  // const [selectedMemorySize, setSelectedMemorySize] = useState("");
-
-  // console.log("Selected Model:", selectedModel);
-  // console.log("Selected Color:", selectedColor);
-  // console.log("Selected Memory Size:", selectedMemorySize);
-
   const [cartItem, setCartItem] = useState({
     productId: product.id,
     imageUrl: product.image,
@@ -40,21 +33,37 @@ function ProductHero({ product, imageUrl }) {
           <SkuSelect
             placeholder={"Model"}
             options={product.models.map((model) => model.name)}
-            onChange={(value) => setCartItem({ ...cartItem, model: value })}
+            onChange={(value) => {
+              setCartItem(
+                produce(cartItem, (draft) => {
+                  draft.model = value;
+                }),
+              );
+            }}
             value={cartItem.model}
           />
           <SkuSelect
             placeholder={"Color"}
             options={product.colors}
-            onChange={(value) => setCartItem({ ...cartItem, color: value })}
+            onChange={(value) => {
+              setCartItem(
+                produce(cartItem, (draft) => {
+                  draft.color = value;
+                }),
+              );
+            }}
             value={cartItem.color}
           />
           <SkuSelect
             placeholder={"Storage Capacity"}
             options={product.memorySizes.map((size) => size.name)}
-            onChange={(value) =>
-              setCartItem({ ...cartItem, memorySize: value })
-            }
+            onChange={(value) => {
+              setCartItem(
+                produce(cartItem, (draft) => {
+                  draft.memorySize = value;
+                }),
+              );
+            }}
             value={cartItem.memorySize}
           />
           <button

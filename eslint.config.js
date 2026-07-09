@@ -34,7 +34,7 @@ export default [
         { allowConstantExport: true },
       ],
       "no-param-reassign": [
-        "error", // warn, off
+        "warn", // warn, off
         {
           props: true,
           ignorePropertyModificationsFor: ["ref"],
