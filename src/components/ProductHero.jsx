@@ -1,6 +1,14 @@
 import SkuSelect from "./SkuSelect";
+import { useState } from "react";
 
 function ProductHero({ product, imageUrl }) {
+  const [selectedModel, setSelectedModel] = useState("");
+  const [selectedColor, setSelectedColor] = useState("");
+  const [selectedMemorySize, setSelectedMemorySize] = useState("");
+
+  console.log("Selected Model:", selectedModel);
+  console.log("Selected Color:", selectedColor);
+  console.log("Selected Memory Size:", selectedMemorySize);
   return (
     <div
       className="flex flex-col lg:flex-row-reverse
@@ -24,11 +32,20 @@ function ProductHero({ product, imageUrl }) {
           <SkuSelect
             placeholder={"Model"}
             options={product.models.map((model) => model.name)}
+            onChange={setSelectedModel}
+            value={selectedModel}
           />
-          <SkuSelect placeholder={"Color"} options={product.colors} />
+          <SkuSelect
+            placeholder={"Color"}
+            options={product.colors}
+            onChange={setSelectedColor}
+            value={selectedColor}
+          />
           <SkuSelect
             placeholder={"Storage Capacity"}
             options={product.memorySizes.map((size) => size.name)}
+            onChange={setSelectedMemorySize}
+            value={selectedMemorySize}
           />
           <button
             className="
@@ -38,6 +55,14 @@ function ProductHero({ product, imageUrl }) {
             hover:bg-apple-blue
             hover:text-apple-gray-100
           "
+            onClick={() => {
+              alert(
+                "Add to Cart:" +
+                  selectedModel +
+                  selectedColor +
+                  selectedMemorySize,
+              );
+            }}
           >
             Add to Cart
           </button>
