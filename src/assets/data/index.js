@@ -6,6 +6,7 @@ export const product = {
   detail: "Powerful performance. Incredible battery life. From RMB 19,999.",
   image: ipad_pro_image,
   textColor: "white",
+  soldOut: false,
 };
 
 export const product2 = {

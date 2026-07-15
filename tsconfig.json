@@ -43,6 +43,13 @@
     "isolatedModules": true,
     "noUncheckedSideEffectImports": false,
     "moduleDetection": "force",
-    "skipLibCheck": true
+    "skipLibCheck": true,
+
+    "paths": {
+      "@/*": ["./src/*"],
+      "@components/*": ["./src/components/*"],
+      "@img/*": ["./src/assets/images/*"],
+      "@types/*": ["./src/types/*"]
+    }
   }
 }

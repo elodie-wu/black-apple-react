@@ -28,7 +28,7 @@ const ListTitle = ({ title }: { title: string }) => (
   </div>
 );
 
-type ProductListProps = {
+export type ProductListProps = {
   title: string;
   datalength: number;
   children: React.ReactNode;
