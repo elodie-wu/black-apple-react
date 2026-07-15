@@ -1,5 +1,7 @@
-interface ButtonProps {
-  title?: string;
+import type React from "react";
+
+export interface ButtonProps {
+  title?: React.ReactNode;
   variant?: "primary" | "outline";
   disabled?: boolean;
   onClick?: () => void;
