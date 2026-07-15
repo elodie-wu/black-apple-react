@@ -1,5 +1,6 @@
 import hero_small_image from "~img/hero_small.jpg";
 import hero_image from "~img/hero.jpg";
+import Button from "./Button";
 
 const ImageHero = () => {
   return (
@@ -17,12 +18,15 @@ const ImageHero = () => {
       <div className="absolute inset-4 flex flex-col p-2 items-center justify-end text-center md:justify-start">
         <div className="text-4xl md:text-6xl font-bold">iPhone 14 Pro</div>
         <div className="mt-4 flex space-x-4">
-          <button className="px-6 py-2 border border-blue-600 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition">
+          <Button title="Learn More" variant="primary" />
+
+          <Button title="Buy" variant="outline" />
+          {/* <button className="px-6 py-2 border border-blue-600 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition">
             Learn More
           </button>
           <button className="px-6 py-2 border border-blue-600 bg-transparent text-white rounded-md hover:bg-blue-700 transition">
             Buy
-          </button>
+          </button> */}
         </div>
       </div>
     </div>

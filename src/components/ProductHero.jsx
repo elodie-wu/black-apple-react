@@ -2,6 +2,12 @@ import SkuSelect from "./SkuSelect";
 import { useState } from "react";
 import { produce } from "immer";
 
+const updateItem = (key, value) => {
+  return produce((draft) => {
+    draft[key] = value;
+  });
+};
+
 function ProductHero({ product, imageUrl }) {
   const [cartItem, setCartItem] = useState({
     productId: product.id,
@@ -34,11 +40,7 @@ function ProductHero({ product, imageUrl }) {
             placeholder={"Model"}
             options={product.models.map((model) => model.name)}
             onChange={(value) => {
-              setCartItem(
-                produce(cartItem, (draft) => {
-                  draft.model = value;
-                }),
-              );
+              setCartItem(updateItem("model", value));
             }}
             value={cartItem.model}
           />
@@ -46,11 +48,7 @@ function ProductHero({ product, imageUrl }) {
             placeholder={"Color"}
             options={product.colors}
             onChange={(value) => {
-              setCartItem(
-                produce(cartItem, (draft) => {
-                  draft.color = value;
-                }),
-              );
+              setCartItem(updateItem("color", value));
             }}
             value={cartItem.color}
           />
@@ -58,11 +56,7 @@ function ProductHero({ product, imageUrl }) {
             placeholder={"Storage Capacity"}
             options={product.memorySizes.map((size) => size.name)}
             onChange={(value) => {
-              setCartItem(
-                produce(cartItem, (draft) => {
-                  draft.memorySize = value;
-                }),
-              );
+              setCartItem(updateItem("memorySize", value));
             }}
             value={cartItem.memorySize}
           />

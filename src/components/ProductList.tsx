@@ -1,5 +1,5 @@
 import React from "react";
-import Production from "@components/Product";
+import Production from "./Product";
 
 const ReleaseNote = () => (
   <div>
@@ -13,7 +13,7 @@ const ProductNotFound = () => (
     <h2>Please wait</h2>
   </div>
 );
-const ListTitle = ({ title }) => (
+const ListTitle = ({ title }: { title: string }) => (
   <div style={{ display: "flex", justifyContent: "center" }}>
     <h1
       style={{
@@ -28,7 +28,12 @@ const ListTitle = ({ title }) => (
   </div>
 );
 
-function ProductList({ title, datalength, children }) {
+type ProductListProps = {
+  title: string;
+  datalength: number;
+  children: React.ReactNode;
+};
+const ProductList = ({ title, datalength, children }: ProductListProps) => {
   const isReleased = new Date() <= new Date("2199-01-01");
 
   if (!isReleased) {
@@ -50,6 +55,6 @@ function ProductList({ title, datalength, children }) {
       {children}
     </div>
   );
-}
+};
 
 export default ProductList;
